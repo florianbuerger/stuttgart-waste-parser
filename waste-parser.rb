@@ -6,7 +6,8 @@ require 'date'
 
 include Icalendar
 
-doc = Nokogiri::HTML(open('https://www.sita-deutschland.de/loesungen/privathaushalte/abfuhrkalender/stuttgart.html?plz=70197&strasse=Rotenwaldstra%C3%9Fe&uid=3286'))
+url = "https://www.sita-deutschland.de/loesungen/privathaushalte/abfuhrkalender/stuttgart.html?plz=70197&strasse=Rotenwaldstra%C3%9Fe&uid=3286"
+doc = Nokogiri::HTML(open(url))
 
 events = []
  
