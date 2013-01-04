@@ -9,7 +9,7 @@ require 'uri'
 
 include Icalendar
 
-url = URI.escape("https://www.sita-deutschland.de/loesungen/privathaushalte/abfuhrkalender/stuttgart.html?plz=70197&strasse=Rotenwaldstra%C3%9Fe&uid=3286")
+url = URI.escape("ENTER YOUR URL HERE")
 doc = Nokogiri::HTML(open(url))
 
 events = []
