@@ -12,7 +12,7 @@ options = {
 }
 
 OptionParser.new do |opts|
-  opts.banner = 'Usage: #{ __FILE__ } [options]'
+  opts.banner = "Usage: #{ __FILE__ } [options]"
 
   opts.on('-z', '--zipcode ZIPCODE', Integer, 'Your zipcode') do |zipcode|
     options[:zipcode] = zipcode
