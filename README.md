@@ -1,10 +1,24 @@
-stuttgart-waste-parser
-======================
+# stuttgart-waste-parser
 
-ruby script to create iCal file for waste calendar in stuttgart, germany
+A Ruby script to create iCal file for waste calendar in stuttgart, germany
 
-Go to [Sita-Deutschland](https://www.sita-deutschland.de/loesungen/privathaushalte/abfuhrkalender/stuttgart.html) website, enter your zip code, select your street and paste the url into the script.
+## Installation
 
-The file will be created at ~/Desktop/waste.ics
+```bash
+git clone git@github.com:pfleidi/stuttgart-waste-parser.git
+cd stuttgart-waste-parser
+bundle install
+```
+
+## Usage
+
+```
+Usage: waste-parser.rb [options]
+    -z, --zipcode ZIPCODE            Your zipcode
+    -s, --street STREET              Your street
+    -o, --outfile FILE               The file to write to
+```
+
+The file will, by default, be created at ~/Desktop/waste.ics
 
 Default alert time is 7 pm the day before

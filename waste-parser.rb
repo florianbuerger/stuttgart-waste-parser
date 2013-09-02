@@ -1,19 +1,37 @@
 # encoding: UTF-8
 
+require 'optparse'
 require 'nokogiri'
-require 'rubygems'
 require 'open-uri'
 require 'icalendar'
 require 'date'
 require 'uri'
 
-include Icalendar
+options = {
+  :outfile => File.join(ENV['HOME'],'Desktop/waste.ics')
+}
 
-url = URI.escape("ENTER YOUR URL HERE")
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{ __FILE__ } [options]"
+
+  opts.on('-z', '--zipcode ZIPCODE', Integer, 'Your zipcode') do |zipcode|
+    options[:zipcode] = zipcode
+  end
+
+  opts.on('-s', '--street STREET', 'Your street') do |street|
+    options[:street] = street
+  end
+
+  opts.on('-o', '--outfile FILE', 'The file to write to') do |file|
+    options[:outfile] = file
+  end
+end.parse!
+
+url = URI.escape("https://www.sita-deutschland.de/loesungen/privathaushalte/abfuhrkalender/stuttgart.html?plz=#{ options[:zipcode] }&strasse=#{ options[:street] }")
 doc = Nokogiri::HTML(open(url))
 
 events = []
- 
+
 class String
   def squash
     self.length < 2 ? nil : self
@@ -27,7 +45,7 @@ entries.each do |entry|
   events << entry.css('td')[2].text.split.last.squash
 end
 
-cal = Calendar.new
+cal = Icalendar::Calendar.new
 
 events.compact.each do |entry|
   cal.event do
@@ -41,6 +59,6 @@ events.compact.each do |entry|
   end
 end
 
-cal_file = File.new(File.join(ENV['HOME'],'Desktop/waste.ics'), 'w')
+cal_file = File.new(options[:outfile], 'w')
 cal_file.write(cal.to_ical)
 cal_file.close
