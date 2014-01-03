@@ -1,3 +1,15 @@
+# doesn't work anymore
+
+>Sehr geehrte Bürgerinnen und Bürger,
+>
+>ab dem 1. Januar 2014 ist SITA nicht mehr zuständig für die Sammlung der gelben Säcke in Stuttgart. Dieser Abfuhrkalender steht daher ab dem 1. Januar 2014 nicht mehr zur Verfügung.
+>
+>Ihre neuen Ansprechpartner sowie die Abfuhrtage entnehmen Sie bitte den örtlichen Medien oder den Informationsplattformen der AWS (Abfallentsorgung Stuttgart). 
+>
+>Wir wünschen Ihnen eine schöne Weihnachtszeit und einen guten Rutsch.
+>Ihr SITA-Team
+>
+
 # stuttgart-waste-parser
 
 A Ruby script to create iCal file for waste calendar in stuttgart, germany
